@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
+/* Variables */
 :root {
+
+  /* Colors */
   --pink: #ff006e;
   --orange: #fb5607;
   --yellow: #ffbe0b;
@@ -8,9 +11,19 @@
   --dkpurple: #00083c;
   --blue: #3a86ff;
   --green: #70e000;
+
+  /* Shadows & Gradients */
   --box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  --gradient:  repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    var(--dkpurple) 8px,
+    var(--dkpurple) 10px
+  );
 }
 
+/* Universal resets for entire page */
 * {
   margin: 0;
   box-sizing: border-box;
@@ -21,6 +34,7 @@ html {
   background-color: var(--yellow);
 }
 
+/* General styling for body */
 body {
   height: 100vh;
   width: 100vw;
@@ -28,11 +42,13 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Pacifico", cursive;
+  -webkit-font-smoothing: antialiased;
   font-size: 4em;
   color: var(--pink);
   text-shadow: var(--box-shadow);
 }
 
+/* Styles grid container */
 .container {
   width: 40vw;
   min-width: 500px;
@@ -41,6 +57,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  /* Specifies placement of grid items */
   grid-template-areas:
     "glasses glasses div1 dance"
     "glasses glasses camping div6"
@@ -50,14 +68,16 @@ body {
   box-shadow: var(--box-shadow);
 }
 
+/* Sets height so image grid items fill specified grid area */
 img {
   width: 100%;
   height: 100%;
 }
 
+/* Styling for image grid items */
 .cooking {
   grid-area: cooking;
-  border-radius: 0 0 0 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .ice-cream {
@@ -66,7 +86,7 @@ img {
 
 .dance {
   grid-area: dance;
-  border-radius: 0 20px 0 0;
+  border-top-right-radius: 20px;
 }
 
 .portrait {
@@ -79,19 +99,21 @@ img {
 
 .glasses {
   grid-area: glasses;
-  border-radius: 20px 0 0 0;
+  border-top-left-radius: 20px;
 }
 
 .sleep {
   grid-area: sleep;
 }
 
+/* General Styling for all div grid items*/
 div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Styling for individual grid item divs */
 .div1 {
   grid-area: div1;
   background-color: var(--blue);
@@ -109,20 +131,15 @@ div {
 .div4 {
   grid-area: div4;
   background-color: var(--purple);
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 8px,
-    var(--dkpurple) 8px,
-    var(--dkpurple) 10px
-  );
+  background-image: var(--gradient);
 }
 
 .div5 {
   grid-area: div5;
-  border-radius: 0 0 20px 0;
+  border-bottom-right-radius: 20px;
   background-color: var(--pink);
 }
+
 .div6 {
   grid-area: div6;
   background-color: var(--green);
